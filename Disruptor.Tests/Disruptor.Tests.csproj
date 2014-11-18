@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -68,7 +68,6 @@
     <Compile Include="Dsl\SleepingEventHandler.cs" />
     <Compile Include="Dsl\StubExceptionHandler.cs" />
     <Compile Include="Dsl\StubTaskScheduler.cs" />
-    <Compile Include="EventTranslatorTests.cs" />
     <Compile Include="MultiThreadedClaimStrategyTests.cs" />
     <Compile Include="SequenceBarrierTests.cs">
       <SubType>Code</SubType>
