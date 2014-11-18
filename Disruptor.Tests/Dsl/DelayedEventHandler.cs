@@ -30,7 +30,7 @@ namespace Disruptor.Tests.Dsl
                 try {
                     Thread.Yield();
                 }
-                catch (ThreadInterruptedException e) {
+                catch (ThreadInterruptedException) {
                     return;
                 }
             }

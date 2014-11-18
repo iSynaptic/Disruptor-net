@@ -12,7 +12,6 @@ namespace Disruptor.PerfTests.Support
         private readonly BlockingCollection<bool> _buzzOutputQueue;
         private readonly long _iterations;
         private volatile bool _done;
-        private volatile bool _running;
         private long _fizzBuzzCounter;
 
         public FizzBuzzQueueEventProcessor(FizzBuzzStep fizzBuzzStep,
@@ -50,13 +49,10 @@ namespace Disruptor.PerfTests.Support
 
         public void Halt()
         {
-            _running = false;
         }
 
         public void Run()
         {
-            _running = true;
-
             for (var i = 0; i < _iterations; i++)
             {
                 try
@@ -88,8 +84,6 @@ namespace Disruptor.PerfTests.Support
                                 break;
                             }
                     }
-
-                   
                 }
                 catch (Exception)
                 {
