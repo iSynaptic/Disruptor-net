@@ -157,35 +157,6 @@ namespace Disruptor.Tests.Dsl
             Assert.AreEqual(testException, actualException);
     }
 
-    [Test]
-    public void shouldBlockProducerUntilAllEventProcessorsHaveAdvanced()
-    {
-        var delayedEventHandler = CreateDelayedEventHandler();
-        _disruptor.HandleEventsWith(delayedEventHandler);
-
-        var ringBuffer = _disruptor.Start();
-
-        var stubPublisher = new StubPublisher(ringBuffer);
-        try {
-            _executor.execute(stubPublisher);
-
-            assertProducerReaches(stubPublisher, 4, true);
-
-            delayedEventHandler.processEvent();
-            delayedEventHandler.processEvent();
-            delayedEventHandler.processEvent();
-            delayedEventHandler.processEvent();
-            delayedEventHandler.processEvent();
-
-            assertProducerReaches(stubPublisher, 5, false);
-        }
-        finally
-        {
-            stubPublisher.halt();
-        }
-    }
-
-
 #if HELL_FROZE_OVER
 
     [Test]
