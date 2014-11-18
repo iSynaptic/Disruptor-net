@@ -20,6 +20,7 @@
 *.sdf
 *.opensdf
 *.unsuccessfulbuild
+*.sln.ide
 ipch/
 obj/
 [Bb]in
